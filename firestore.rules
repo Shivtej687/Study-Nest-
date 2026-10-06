@@ -1,0 +1,20 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Student profile documents & nested data
+    match /users/{userId} {
+      allow read, write: if true;
+      match /{allChildren=**} {
+        allow read, write: if true;
+      }
+    }
+    // Email indexed lookup for persistent profile restoration across sessions
+    match /user_profiles_by_email/{emailKey} {
+      allow read, write: if true;
+    }
+    // Catch-all document match
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

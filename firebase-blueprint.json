@@ -1,0 +1,86 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Student profile data including credentials, orientation state, syllabus, and study progress",
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "Full legal or preferred name of the student"
+        },
+        "email": {
+          "type": "string",
+          "description": "Primary email address of the student"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of account registration"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last update"
+        },
+        "orientationCompleted": {
+          "type": "boolean",
+          "description": "Whether the student has completed the first-time AI onboarding questionnaire"
+        },
+        "studentMeta": {
+          "type": "object",
+          "description": "Student academic details including grade, standard, board, age, and focus areas"
+        },
+        "customSyllabus": {
+          "type": "object",
+          "description": "Structured AI-generated syllabus or curriculum tracks"
+        },
+        "checkedChapters": {
+          "type": "object",
+          "description": "Map of completed chapter IDs to completion boolean"
+        },
+        "quizScore": {
+          "type": "number",
+          "description": "Cumulative score earned on quizzes"
+        },
+        "totalQuizAttempts": {
+          "type": "number",
+          "description": "Total number of completed quiz sessions"
+        },
+        "rollNumber": {
+          "type": "string",
+          "description": "Unique institutional student roll number"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Contact phone number"
+        },
+        "dob": {
+          "type": "string",
+          "description": "Date of birth"
+        },
+        "city": {
+          "type": "string",
+          "description": "Residential city and state"
+        },
+        "schoolName": {
+          "type": "string",
+          "description": "Name of school or junior college"
+        },
+        "batchName": {
+          "type": "string",
+          "description": "Class batch name and schedule timings"
+        }
+      },
+      "required": ["email"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Contains user account profile, orientation state, and learning progress"
+    },
+    "/user_profiles_by_email/{emailKey}": {
+      "schema": "UserProfile",
+      "description": "Email-indexed directory mapping student email to user profile for instant data retrieval"
+    }
+  }
+}

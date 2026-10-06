@@ -1,0 +1,6 @@
+{
+  "name": "Study Nest",
+  "description": "An elegant, distraction-free study workspace featuring an animated Study Nest Logo, pomodoro timers, flashcards, nesting notes, and ambient focus sounds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
